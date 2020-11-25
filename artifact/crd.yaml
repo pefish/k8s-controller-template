@@ -1,0 +1,16 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: students.pefish.k8s.io  # 名称必须符合下面的格式：<plural>.<group>
+spec:
+  group: pefish.k8s.io # REST API使用的组名称：/apis/<group>/<version>
+  version: v1alpha1  # REST API使用的版本号：/apis/<group>/<version>
+  names:
+    kind: Student # CamelCased格式的单数类型。在清单文件中使用
+    plural: students # URL中使用的复数名称: /apis/<group>/<version>/<plural>
+    singular: student # 单数名
+    shortNames:
+      - stu  # 简称。类似于Service简称svc
+  scope: Namespaced # 范围是属于namespace的。Namespaced或Cluster
+
+# 这是一个资源声明

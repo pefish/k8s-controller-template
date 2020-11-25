@@ -1,0 +1,10 @@
+apiVersion: pefish.k8s.io/v1alpha1
+kind: Student
+metadata:
+  name: object-student
+spec:
+  name: "张三"
+  school: "深圳中学"
+
+# 这是一个资源对象，controller根据这个对象的参数做事情
+# 类似于deployment对象，controller根据deployment对象的参数管理pod资源对象

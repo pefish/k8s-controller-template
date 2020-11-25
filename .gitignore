@@ -1,2 +1,5 @@
 vendor
 .idea
+
+pkg/generated
+pkg/apis/pefish/v1alpha1/zz_generated.deepcopy.go

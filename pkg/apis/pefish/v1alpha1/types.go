@@ -11,15 +11,19 @@ import (
 type Student struct {  // 对应 stu.yaml
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
+
 	Spec   StudentSpec   `json:"spec"`
+
+	Status StudentStatus `json:"status"`
 }
 
-type StudentSpec struct {
-	DeploymentName string `json:"deploymentName"`
-	Replicas       *int32 `json:"replicas"`
-
+type StudentSpec struct {  // 对应stu实例对象的spec中的字段
 	Name   string `json:"name"`
 	School string `json:"school"`
+}
+
+type StudentStatus struct {
+
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
@@ -27,5 +31,6 @@ type StudentSpec struct {
 type StudentList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata"`
+
 	Items []Student `json:"items"`
 }
